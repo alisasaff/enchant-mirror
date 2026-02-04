@@ -1,2 +1,11 @@
-# alis
-ITT630
+This directory contains brief explaination about this Web XSS challenge (The Enchanted Mirror).
+
+The Enchanted Mirror is a medium-level web security challenge designed to demonstrate a Reflected Cross-Site Scripting (XSS) vulnerability. 
+The application reflects user input directly onto the page without proper sanitization, allowing injected JavaScript to execute in the browser.
+Participants must identify the vulnerability, trigger script execution, and inspect the dynamically modified DOM to retrieve the real flag. 
+A decoy flag is intentionally placed in the page source to prevent trivial solutions and encourage runtime analysis.
+This project was developed for educational purposes to help students understand client-side web vulnerabilities and the importance of secure input handling.
+
+File given: vulnerable_feedback.html
+
+Note: 🪞 The mirror repeats everything it hears, but its secrets appear only after a spell is cast.
