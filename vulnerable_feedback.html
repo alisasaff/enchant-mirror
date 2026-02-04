@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Enchanted Mirror</title>
+</head>
+<body>
+
+    <h2>🪞 The Enchanted Mirror</h2>
+    <p>
+        Speak to the mirror, and it shall echo your words.
+        Beware — it does not cleanse wicked spells.
+    </p>
+
+    <form method="GET">
+        <input type="text" name="feedback" placeholder="Speak your words...">
+        <button type="submit">Speak</button>
+    </form>
+
+    <hr>
+
+    <h3>✨ The Mirror Reveals:</h3>
+
+    <div>
+        <script>
+            const params = new URLSearchParams(window.location.search);
+            const userInput = params.get("feedback");
+
+            if (userInput) {
+                // Vulnerable reflection
+                document.write(userInput);
+
+                // Trigger only when XSS is used
+                if (userInput.includes("<script>")) {
+                    alert("The mirror has been disturbed...");
+
+                    // Real flag: injected into DOM, hidden
+                    const flag = document.createElement("div");
+                    flag.style.display = "none";
+                    flag.textContent = atob(
+                        "Z3JvdXBjdGZ7eHNzX3Z1bG5lcmFiaWxpdHlfZGlzY292ZXJlZH0="
+                    );
+                    document.body.appendChild(flag);
+                }
+            }
+        </script>
+    </div>
+
+       <!-- groupctf{mirr0r_disc0verED} -->
+
+</body>
+</html>
